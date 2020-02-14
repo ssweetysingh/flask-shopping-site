@@ -101,9 +101,10 @@ def add_to_cart(melon_id):
     cart = {melon_id: count} 
     session["cart"] = {} # why can did this work?
    
-    count = session.get('cart')
+    count = session.get('cart') ## needs work
     count += 1
-        
+    if session.get('cart') in cart[melon_id]:
+        count += 1  
      
     flash('Melon added')
     return render_template("cart.html")
